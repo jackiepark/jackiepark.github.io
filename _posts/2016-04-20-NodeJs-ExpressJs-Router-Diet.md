@@ -3,8 +3,6 @@ layout: post
 title: diet your express router code
 ---
 
-# Router Diet
-
 ## First Commit
 
 ```js
