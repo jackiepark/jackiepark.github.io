@@ -1,8 +1,14 @@
+---
+layout: post
+title: diet your express router code
+---
+
 # Router Diet
 
 ## First Commit
 
 ```js
+
 // index
 app.get('/api/component/:id', function (req, res) {
   axios.get(url+req.params.id)
@@ -22,11 +28,13 @@ app.get('/api/component/:id', function (req, res) {
 // app.post ...
 // app.put ...
 // app.delete ...
+
 ```
 
 ## separate express router
 
 ```js
+
 // index
 api.use('/api/component', component);
 // router
@@ -48,11 +56,13 @@ app.get('/:id', function (req, res) {
 // app.post ...
 // app.put ...
 // app.delete ...
+
 ```
 
 ## fat arrow function
 
 ```js
+
 // router
 router.get('/:id', (req, res) => {
   axios.get(url+req.params.id)
@@ -69,11 +79,13 @@ router.get('/:id', (req, res) => {
       res.send(err);
     });
 });
+
 ```
 
 ## separate router and controller
 
 ```js
+
 // router
 router.route('/:id')
   .get(componentController.get)
@@ -96,11 +108,13 @@ function get(req, res) {
       res.send(err);
     });
 }
+
 ```
 
 ## async await
 
 ```js
+
 // controller
 async function get(req, res) {
   try {
@@ -111,11 +125,13 @@ async function get(req, res) {
     res.send(err);
   }
 }
+
 ```
 
 ## remove tryCatch
 
 ```js
+
 // router
 let next = fn => (...args) => fn(...args).catch(args[2]);
 
@@ -128,4 +144,5 @@ router.route('/:id')
 const id = await axios.get(url+req.params.id);
 const result = await Model.find({id: id});
 res.send(result);
+
 ```
