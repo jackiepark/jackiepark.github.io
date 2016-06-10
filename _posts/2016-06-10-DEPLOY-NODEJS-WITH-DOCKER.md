@@ -25,7 +25,7 @@
 ### 설정코드
 * NODE_ENV 및 server 정보를 모두 compose environment 로 구성
 
-```
+```js
 environment:
     - NODE_ENV=local
     - DBIP=blahblah
@@ -36,7 +36,7 @@ environment:
     * 개발시 db 는 docker 로 사용하고 node 는 직접 띄우는 등의 조합이 가능함
     * brew 로 local 환경 운영할때 보다 편해짐
 
-```
+```js
 const DBIP = process.env.DBIP ? process.env.DBIP : 'db_1';
 const DBURL = `${DBIP}:${DBPORT}/${DBCOMPONENT}`
 ```
