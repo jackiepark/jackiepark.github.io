@@ -67,7 +67,7 @@ const z = Object.assign(x, y) // z = {a:{b:2}}, x = {a:{b:2}}
 const x = {a:1}
 const y = {b:1}
 const z = {...x, ...y} // z = {a:1, b:1} // copy only its ownproperty
-const _z = {{ __proto__: x.__proto__ }, x} // copy like extend
+const _z = { { __proto__: x.__proto__ }, x} // copy like extend
 
 var _extends = Object.assign || 
   function (target) {
